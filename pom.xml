@@ -18,6 +18,7 @@
         <module>feign</module>
         <module>api</module>
         <module>web</module>
+        <module>service</module>
     </modules>
 
     <dependencyManagement>

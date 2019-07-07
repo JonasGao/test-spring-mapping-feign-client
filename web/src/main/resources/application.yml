@@ -3,10 +3,35 @@ spring:
     name: demo-web
   jmx:
     enabled: false
+  profiles:
+    include: debugfeign, debugeureka, debugribbon
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8080/eureka
+    register-with-eureka: false
 server:
   port: 8081
-debug: true
+
+---
+spring:
+  profiles: debugfeign
+feign:
+  client:
+    config:
+      demo-service:
+        logger-level: full
+logging:
+  level:
+    com:
+      example:
+        demo:
+          feign: debug
+
+---
+spring:
+  profiles: debugeureka
+
+---
+spring:
+  profiles: debugribbon
