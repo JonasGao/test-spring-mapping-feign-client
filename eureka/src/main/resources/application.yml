@@ -1,3 +1,9 @@
 spring:
   application:
     name: demo-eureka-server
+  jmx:
+    enabled: false
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
