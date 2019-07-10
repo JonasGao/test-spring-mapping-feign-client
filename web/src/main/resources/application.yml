@@ -20,7 +20,7 @@ feign:
   client:
     config:
       demo-service:
-        logger-level: full
+        loggerLevel: full
 logging:
   level:
     com:
@@ -35,3 +35,12 @@ spring:
 ---
 spring:
   profiles: debugribbon
+logging:
+  level:
+    com:
+      netflix:
+        discovery: debug
+        niws:
+          loadbalancer: debug
+        loadbalancer: debug
+
