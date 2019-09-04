@@ -11,4 +11,7 @@ public interface MyApi {
 
     @GetMapping("/api/join")
     String getJoinedString(@RequestParam("strings") List<String> strings);
+
+    @GetMapping("/api/date")
+    SomeBean getSomeDate();
 }

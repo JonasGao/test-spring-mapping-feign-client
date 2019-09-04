@@ -27,4 +27,9 @@ public class MyController {
     public String join() {
         return "Return: " + myApi.getJoinedString(Lists.newArrayList("Hello", "World", "Spring", "Cloud"));
     }
+
+    @GetMapping("/test-date")
+    public String testDate() {
+        return "Return: " + myApi.getSomeDate();
+    }
 }
