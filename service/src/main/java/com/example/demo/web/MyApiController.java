@@ -2,9 +2,8 @@ package com.example.demo.web;
 
 import com.example.demo.api.MyApi;
 import com.example.demo.api.SomeBean;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.demo.api.SomeBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -26,5 +25,10 @@ public class MyApiController implements MyApi {
         SomeBean someBean = new SomeBean();
         someBean.setDateField(new Date());
         return someBean;
+    }
+
+    @Override
+    public String restFulGetSomeString(@PathVariable("name") String name, @RequestBody SomeBody body) {
+        return String.format("Hello, %s. I get your description: \"%s\"", name, body.getDescription());
     }
 }

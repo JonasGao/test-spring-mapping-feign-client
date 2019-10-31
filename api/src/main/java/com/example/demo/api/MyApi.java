@@ -1,7 +1,6 @@
 package com.example.demo.api;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,4 +13,7 @@ public interface MyApi {
 
     @GetMapping("/api/date")
     SomeBean getSomeDate();
+
+    @PostMapping("/api/strings/{name}")
+    String restFulGetSomeString(@PathVariable("name") String name, @RequestBody SomeBody body);
 }

@@ -1,6 +1,7 @@
 package com.example.demo.web;
 
 import com.example.demo.api.MyApi;
+import com.example.demo.api.SomeBody;
 import com.google.common.collect.Lists;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,5 +32,12 @@ public class MyController {
     @GetMapping("/test-date")
     public String testDate() {
         return "Return: " + myApi.getSomeDate();
+    }
+
+    @GetMapping("/test-rest")
+    public String testRest() {
+        SomeBody body = new SomeBody();
+        body.setDescription("Nice Job!");
+        return "Return: " + myApi.restFulGetSomeString("JoJo", body);
     }
 }
