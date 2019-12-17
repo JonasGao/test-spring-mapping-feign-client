@@ -1,5 +1,6 @@
 package com.example.demo.api;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,4 +17,7 @@ public interface MyApi {
 
     @PostMapping("/api/strings/{name}")
     String restFulGetSomeString(@PathVariable("name") String name, @RequestBody SomeBody body);
+
+    @PostMapping("/api/fail")
+    ResponseEntity<String> testFail();
 }

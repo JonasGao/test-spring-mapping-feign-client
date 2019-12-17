@@ -3,6 +3,7 @@ package com.example.demo.web;
 import com.example.demo.api.MyApi;
 import com.example.demo.api.SomeBody;
 import com.google.common.collect.Lists;
+import feign.FeignException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -39,5 +40,15 @@ public class MyController {
         SomeBody body = new SomeBody();
         body.setDescription("Nice Job!");
         return "Return: " + myApi.restFulGetSomeString("JoJo", body);
+    }
+
+    @GetMapping("/test-fail")
+    public String testFail() {
+        try {
+            myApi.testFail();
+            return "What ?! Succeed???? No way!!!";
+        } catch (FeignException e) {
+            return "Return: " + e.toString();
+        }
     }
 }

@@ -3,6 +3,7 @@ package com.example.demo.web;
 import com.example.demo.api.MyApi;
 import com.example.demo.api.SomeBean;
 import com.example.demo.api.SomeBody;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -30,5 +31,10 @@ public class MyApiController implements MyApi {
     @Override
     public String restFulGetSomeString(@PathVariable("name") String name, @RequestBody SomeBody body) {
         return String.format("Hello, %s. I get your description: \"%s\"", name, body.getDescription());
+    }
+
+    @Override
+    public ResponseEntity<String> testFail() {
+        return ResponseEntity.status(500).body("Oh, there is an error!");
     }
 }
