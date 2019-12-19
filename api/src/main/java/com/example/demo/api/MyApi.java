@@ -20,4 +20,7 @@ public interface MyApi {
 
     @PostMapping("/api/fail")
     ResponseEntity<String> testFail();
+
+    @GetMapping("/api/pathvar/{path-var}")
+    String testPathVar(@PathVariable("path-var") String var);
 }

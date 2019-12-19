@@ -51,4 +51,9 @@ public class MyController {
             return "Return: " + e.toString();
         }
     }
+
+    @GetMapping("/test-pathvar")
+    public String testPathVar() {
+        return myApi.testPathVar("World?");
+    }
 }
