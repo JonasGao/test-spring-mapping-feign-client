@@ -4,10 +4,8 @@ import com.example.demo.api.MyApi;
 import com.example.demo.api.SomeBean;
 import com.example.demo.api.SomeBody;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.util.CollectionUtils;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -22,6 +20,14 @@ public class MyApiController implements MyApi {
     @Override
     public String getJoinedString(@RequestParam("strings") List<String> strings) {
         return String.join("|", strings);
+    }
+
+    @Override
+    public String getJoinNull(@RequestParam(value = "strings", required = false) List<String> strings){
+        if (CollectionUtils.isEmpty(strings)) {
+            return "Empty!";
+        }
+        return getJoinedString(strings);
     }
 
     @Override

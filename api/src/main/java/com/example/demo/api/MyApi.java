@@ -12,6 +12,9 @@ public interface MyApi {
     @GetMapping("/api/join")
     String getJoinedString(@RequestParam("strings") List<String> strings);
 
+    @GetMapping("/api/join-null")
+    String getJoinNull(@RequestParam(value = "strings", required = false) List<String> strings);
+
     @GetMapping("/api/date")
     SomeBean getSomeDate();
 
