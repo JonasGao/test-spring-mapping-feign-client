@@ -5,6 +5,7 @@ import com.example.demo.api.SomeBean;
 import com.example.demo.api.SomeBody;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -50,5 +51,10 @@ public class MyApiController implements MyApi {
     @Override
     public String testPathVar(@PathVariable("path-var") String var) {
         return "Hello: " + var;
+    }
+
+    @Override
+    public String deleteSomeThing(@RequestBody List<String> stringList) {
+        return String.join("|", stringList);
     }
 }

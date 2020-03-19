@@ -26,4 +26,7 @@ public interface MyApi {
 
     @GetMapping("/api/pathvar/{path-var}")
     String testPathVar(@PathVariable("path-var") String var);
+
+    @DeleteMapping("/api/some-thing")
+    String deleteSomeThing(@RequestBody List<String> stringList);
 }

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 @RestController
 public class MyController {
@@ -74,5 +75,10 @@ public class MyController {
     @GetMapping("/test-pathvar")
     public String testPathVar() {
         return myApi.testPathVar("World?");
+    }
+
+    @GetMapping("/test-delete-with-body")
+    public String testDeleteWithBody() {
+        return myApi.deleteSomeThing(Arrays.asList("Hello", "World!"));
     }
 }
