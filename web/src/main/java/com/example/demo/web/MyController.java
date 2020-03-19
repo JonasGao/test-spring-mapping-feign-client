@@ -4,11 +4,14 @@ import com.example.demo.api.MyApi;
 import com.example.demo.api.SomeBody;
 import com.google.common.collect.Lists;
 import feign.FeignException;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 @RestController
 public class MyController {
@@ -80,5 +83,10 @@ public class MyController {
     @GetMapping("/test-delete-with-body")
     public String testDeleteWithBody() {
         return myApi.deleteSomeThing(Arrays.asList("Hello", "World!"));
+    }
+
+    @DeleteMapping("/test-delete-with-body")
+    public String testDeleteWithBodyByBrowser(@RequestBody List<String> stringList) {
+        return String.join("/", stringList);
     }
 }
